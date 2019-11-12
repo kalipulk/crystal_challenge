@@ -5,45 +5,247 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="assets/reset.css">
-  <link href="https://fonts.googleapis.com/css?family=Carter+One|Julius+Sans+One|Megrim|Syncopate&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="assets/style_crystals.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/crystals.js"></script>
   <title>Crystal Counting</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/crystals.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/style/style_crystals.css">
+
 </head>
 
-<body>
-  <header class="container">
-    <h1>Counting Crystals</h1><br><br>
-    <p class="directions-text">match your number to the crystal number by clicking the crystals.</p>
-    <p class="directions-text">each crystal click will increase your number by a random number</p>
-  </header>
-
-  <div class="crystal-numbers">
-    <div id="target-crystal">
-      <p>target number:</p>
-    </div>
-    <div id="user-crystal">
-      <p>your number:</p>
-    </div>
-  </div>
-
-  <div>
-    <div class="gem" id="c1">
-      <img src="assets/images/gem1.png" alt="crystal one">
-    </div>
-    <div class="gem" id="c2">
-      <img src="assets/images/gem2.png" alt="crystal two">
-    </div>
-    <div class="gem" id="c3">
-      <img src="assets/images/gem3.png" alt="crystal three">
-    </div>
-    <div class="gem" id="c4">
-      <img src="assets/images/gem4.png" alt="crystal four">
-    </div>
-  </div>
-</body>
-
+<body class="bgstyle">
+    <div>
+        <!--Title and Directions-->
+        <div class="title">Crystal Counter</div>
+        <div class="directions">click each cyrstal to match your number to the random number shown</div>
+        <!--Wins and Losses-->
+        <div>
+            <div class="win-loss-text">Wins <span id="wins">0</span></div>
+            <div class="win-loss-text">Losses <span id="losses">0</span></div>
+        </div>
+        
+        <!--Value to Guess-->
+         <div class="button-area">
+             <div class="padder2">
+                 <div id="valueToGuess" class="phrase">0</div>
+             </div>
+         </div>
+         <!--Current Value-->
+         <div class="button-area">
+             <div class="padder2">
+                 <div id="currentValue" class="phrase">0</div>
+             </div>
+         </div>
+         <!--Gems and Values-->
+         <div class="button-area">
+             <div style="padder">
+                 <div class="flex-box">
+                     <div style="max-width:25%;" onclick="gem1Add()">
+                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 504 504" style="enable-background:new 0 0 504 504;" xml:space="preserve">
+   <g>
+     <polygon style="fill:#BE9AD5;" points="407.2,172 504,270.4 252,492.8 0,270.4 96.8,172  "/>
+     <polygon style="fill:#BE9AD5;" points="407.2,172 504,270.4 252,492.8 0,270.4 96.8,172  "/>
+   </g>
+   <polyline style="fill:#B084CC;" points="504,269.6 252,492.8 0,269.6 "/>
+   <polygon style="fill:#BE9AD5;" points="407.2,172 400,270.4 252,492.8 112,270.4 96.8,172 "/>
+   <polygon style="fill:#916DA7;" points="407.2,172 400,270.4 252,172 112,270.4 96.8,172 "/>
+   <polyline style="fill:#715482;" points="400,269.6 252,492.8 112,269.6 "/>
+   <polyline style="fill:#CCB0DE;" points="50.4,269.6 252,492.8 0,270.4 96.8,172 "/>
+   <polyline style="fill:#715482;" points="453.6,269.6 252,492.8 503.2,269.6 407.2,172 "/>
+   
+   
+   
+   
+   
+   
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   </svg>
+                       </div>
+                       <div style="max-width:25%;" onclick="gem2Add()">
+                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 504 504" style="enable-background:new 0 0 504 504;" xml:space="preserve">
+   <g>
+     <polygon style="fill:#EF683F;" points="407.2,172 504,270.4 252,492.8 0,270.4 96.8,172  "/>
+     <polygon style="fill:#EF683F;" points="407.2,172 504,270.4 252,492.8 0,270.4 96.8,172  "/>
+   </g>
+   <polyline style="fill:#E84621;" points="504,269.6 252,492.8 0,269.6 "/>
+   <polygon style="fill:#EF683F;" points="407.2,172 400,270.4 252,492.8 112,270.4 96.8,172 "/>
+   <polygon style="fill:#EA1F0A;" points="407.2,172 400,270.4 252,172 112,270.4 96.8,172 "/>
+   <polyline style="fill:#AA2011;" points="400,269.6 252,492.8 112,269.6 "/>
+   <polyline style="fill:#EDA785;" points="50.4,269.6 252,492.8 0,270.4 96.8,172 "/>
+   <polyline style="fill:#AA2011;" points="453.6,269.6 252,492.8 503.2,269.6 407.2,172 "/>
+   
+   
+   
+   
+   
+   
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   </svg>
+                       </div>
+                       <div style="max-width:25%;" onclick="gem3Add()">
+                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 504 504" style="enable-background:new 0 0 504 504;" xml:space="preserve">
+   <g>
+     <polygon style="fill:#58E9FF;" points="407.2,172 504,270.4 252,492.8 0,270.4 96.8,172  "/>
+     <polygon style="fill:#58E9FF;" points="407.2,172 504,270.4 252,492.8 0,270.4 96.8,172  "/>
+   </g>
+   <polyline style="fill:#34E5FF;" points="504,269.6 252,492.8 0,269.6 "/>
+   <polygon style="fill:#58E9FF;" points="407.2,172 400,270.4 252,492.8 112,270.4 96.8,172 "/>
+   <polygon style="fill:#2BBCD1;" points="407.2,172 400,270.4 252,172 112,270.4 96.8,172 "/>
+   <polyline style="fill:#2292A3;" points="400,269.6 252,492.8 112,269.6 "/>
+   <polyline style="fill:#7DEEFF;" points="50.4,269.6 252,492.8 0,270.4 96.8,172 "/>
+   <polyline style="fill:#2292A3;" points="453.6,269.6 252,492.8 503.2,269.6 407.2,172 "/>
+   
+   
+   
+   
+   
+   
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   </svg>
+                       </div>
+                       <div style="max-width:25%;" onclick="gem4Add()">
+                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 504 504" style="enable-background:new 0 0 504 504;" xml:space="preserve">
+   <g>
+     <polygon style="fill:#7CDBA7;" points="407.2,172 504,270.4 252,492.8 0,270.4 96.8,172  "/>
+     <polygon style="fill:#7CDBA7;" points="407.2,172 504,270.4 252,492.8 0,270.4 96.8,172  "/>
+   </g>
+   <polyline style="fill:#60D394;" points="504,269.6 252,492.8 0,269.6 "/>
+   <polygon style="fill:#7CDBA7;" points="407.2,172 400,270.4 252,492.8 112,270.4 96.8,172 "/>
+   <polygon style="fill:#4FAD7A;" points="407.2,172 400,270.4 252,172 112,270.4 96.8,172 "/>
+   <polyline style="fill:#3E875F;" points="400,269.6 252,492.8 112,269.6 "/>
+   <polyline style="fill:#99E3BA;" points="50.4,269.6 252,492.8 0,270.4 96.8,172 "/>
+   <polyline style="fill:#3E875F;" points="453.6,269.6 252,492.8 503.2,269.6 407.2,172 "/>
+   
+   
+   
+   
+   
+   
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   <g>
+   </g>
+   </svg>
+                       </div>
+                   </div>
+             </div>
+         </div>
+     </div>
+ </body>
 </html>
+
+
+
